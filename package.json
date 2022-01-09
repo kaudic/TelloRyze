@@ -1,0 +1,33 @@
+{
+  "name": "TelloRyze",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fly.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaudic/TelloRyze.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaudic/TelloRyze/issues"
+  },
+  "homepage": "https://github.com/kaudic/TelloRyze#readme",
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "wait": "^0.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "nodemon": "^2.0.15"
+  }
+}
