@@ -21,7 +21,6 @@
     "dgram": "^1.0.1",
     "dotenv-flow": "^3.2.0",
     "express": "^4.17.2",
-    "express-session": "^1.17.2",
     "wait": "^0.4.2"
   },
   "devDependencies": {

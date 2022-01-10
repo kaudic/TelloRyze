@@ -4,6 +4,8 @@ const PORT = process.env.TELLO_CMD_PORT;
 const HOST = process.env.TELLO_HOST;
 
 const client = {
+    isClient: false,
+
     init: async () => {
         console.log('init in process');
         client.drone.bind(PORT);
@@ -12,6 +14,7 @@ const client = {
         });
         client.drone.send('command', 0, 7, PORT, HOST, client.handleError);
         client.drone.send('battery?', 0, 8, PORT, HOST, client.handleError);
+        client.isClient = true;
     },
 
     drone: dgram.createSocket('udp4'),
