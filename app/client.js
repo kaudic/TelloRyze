@@ -10,7 +10,7 @@ const client = {
         console.log('init in process');
         client.drone.bind(PORT);
         client.drone.on('message', (message) => {
-            console.log(`Drone.on message: ${message}`);
+            console.log(`Drone: ${message}`);
         });
         client.drone.send('command', 0, 7, PORT, HOST, client.handleError);
         client.drone.send('battery?', 0, 8, PORT, HOST, client.handleError);
