@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
-const isClient = require('./isClient');
 
-//liste des routes GET
+// routing list
 router.get('/', controller.boardPage); //page d'accueil
-router.get('/takeoff', isClient(), controller.takeoff); //takeoff
-router.get('/land', isClient(), controller.land); //land
+router.post('/command', controller.sendCommand); // send command to Droneio
+
 module.exports = router;

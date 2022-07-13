@@ -1,13 +1,16 @@
 //importation et gestion des modules externes
-require('dotenv-flow').config();
-const express = require('express');
-const router = require('./app/router');
-const app = express();
+const http = require('http');
+require('dotenv').config();
+const WebSocketIo = require('./app/class/webSocketIo');
 
-app.use(express.static('./front'));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+const app = require('./app');
+const port = process.env.PORT ?? 3000;
+const server = http.createServer(app);
 
-app.use(router);
+// initialize a websocket for double communication canal
+const websocket = new WebSocketIo(server);
 
-app.listen(3000, () => console.log('server running and listenning to port 3000'));
+//application à l'écoute d'un port
+server.listen(port, () => {
+    console.log(`Navigator listenning on port ${port}`);
+});

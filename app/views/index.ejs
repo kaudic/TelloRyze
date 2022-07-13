@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Link rel="StyleSheet" href="/css/style.css" type="text / css" />
+    <title>Tableau de Bord Tello</title>
+</head>
+
+<body>
+
+    <div class='board'>
+        <h1 class='board__title'>Tableau de Bord</h1>
+        <!-- button with no option-->
+        <button id='' data-command='takeoff' class='board__button'>Décoller</button>
+        <button id='' data-command='land' class='board__button'>Atterrir</button>
+        <button id='' data-command='emergency' class='board__button'>Atterrir</button>
+
+        <!-- button with one option-->
+        <button id='' data-command='flip' data-option="f" class='board__button'>Flip Forward</button>
+        <button id='' data-command='flip' data-option="l" class='board__button'>Flip Left</button>
+        <button id='' data-command='flip' data-option="r" class='board__button'>Flip Right</button>
+        <button id='' data-command='flip' data-option="b" class='board__button'>Flip Back</button>
+
+        <button id='' data-command='up' data-option="10" class='board__button'>Up 10cm</button>
+        <button id='' data-command='down' data-option="10" class='board__button'>Down 10cm</button>
+        <button id='' data-command='left' data-option="10" class='board__button'>Left 10cm</button>
+        <button id='' data-command='right' data-option="10" class='board__button'>Right 10cm</button>
+        <button id='' data-command='forward' data-option="10" class='board__button'>Forward 10cm</button>
+        <button id='' data-command='back' data-option="10" class='board__button'>Back 10cm</button>
+
+        <button id='' data-command='cw' data-option="45" class='board__button'>Rotate ClockWise 45°</button>
+        <button id='' data-command='ccw' data-option="45" class='board__button'>Rotate CounterClockWise 45°</button>
+
+
+    </div>
+
+    <script type="text/javascript" src="/js/socket.io.js" defer></script>
+    <script type="text/javascript" src="js/api.js" defer></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
+
+</body>
+
+</html>
