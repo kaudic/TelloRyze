@@ -1,12 +1,10 @@
 // import native module from Node
 const dgram = require('dgram');
 
-// import the websocket initialized from index server file - static property
-// const WebSocketIo = require('./webSocketIo');
 
 class DroneState {
 
-    static websocket;
+    static websocket; // will be updated on each connection from front (refreshment of page) by the io connection event
     socket;
     port;
     host;
@@ -18,19 +16,18 @@ class DroneState {
         this.socket.bind(port, host);
 
         this.socket.on('message', (msg) => {
-            // const parsedMessage = this.parseState();
+            const parsedMessage = this.parseState(msg);
             if (DroneState.websocket) {
-                DroneState.websocket.emit('state', msg.toString());
+                DroneState.websocket.emit('state', parsedMessage); // transfor buffer into an array of array
             }
-            // console.log(msg.toString());
         });
 
         console.log('droneState is on');
     }
 
-    // parseState(msg) {
-    //     return msg.split
-    // }
+    parseState(msg) {
+        return msg.toString().split(';').map(x => x.split(';'));
+    }
 
 };
 

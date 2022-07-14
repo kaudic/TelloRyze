@@ -9,3 +9,7 @@
 .land {}
 
 .flipf {}
+
+.charts_container {
+    height: 50vh;
+}
