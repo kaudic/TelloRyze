@@ -11,36 +11,80 @@
 
 <body>
 
-    <div class='board'>
-        <h1 class='board__title'>Tableau de Bord</h1>
-        <!-- button with no option-->
-        <button id='' data-command='takeoff' class='board__button'>Décoller</button>
-        <button id='' data-command='land' class='board__button'>Atterrir</button>
-        <button id='' data-command='emergency' class='board__button'>Atterrir</button>
+    <div class="main">
+        <div id="chart_div" class='charts_container'>
+            <!-- battery chart -->
+            <div>
+                <div class="batteryContainer">
+                    <div class="batteryOuter">
+                        <div id="batteryLevel">10%</div>
+                    </div>
+                    <div class="batteryBump"></div>
+                </div>
+            </div>
+            <div class="chart">
+                <canvas id="distanceChart"></canvas>
+            </div>
+            <div class="chart">
+                <canvas class="chart" id="temperatureChart"></canvas>
+            </div>
+            <div class="chart">
+                <canvas class="chart" id="radarChart"></canvas>
+            </div>
+        </div>
+        <canvas class="videoStream" id="video-canvas"></canvas>
+        <div class='board'>
 
-        <!-- button with one option-->
-        <button id='' data-command='flip' data-option="f" class='board__button'>Flip Forward</button>
-        <button id='' data-command='flip' data-option="l" class='board__button'>Flip Left</button>
-        <button id='' data-command='flip' data-option="r" class='board__button'>Flip Right</button>
-        <button id='' data-command='flip' data-option="b" class='board__button'>Flip Back</button>
+            <div class="startStop">
+                <div id='' data-command='takeoff' class='start board__button'>Take off</div>
+                <div id='' data-command='land' class='stop board__button'>Land</div>
+            </div>
 
-        <button id='' data-command='up' data-option="10" class='board__button'>Up 10cm</button>
-        <button id='' data-command='down' data-option="10" class='board__button'>Down 10cm</button>
-        <button id='' data-command='left' data-option="10" class='board__button'>Left 10cm</button>
-        <button id='' data-command='right' data-option="10" class='board__button'>Right 10cm</button>
-        <button id='' data-command='forward' data-option="10" class='board__button'>Forward 10cm</button>
-        <button id='' data-command='back' data-option="10" class='board__button'>Back 10cm</button>
+            <div class="cross">
+                <div class="circle">
+                    <div class="crossCenter">
+                        <div data-command='up' data-option="50" class="crossTop board__button"></div>
+                        <div data-command='down' data-option="50" class="crossBottom board__button"></div>
+                        <div data-command='left' data-option="50" class="crossLeft board__button"></div>
+                        <div data-command='right' data-option="50" class="crossRight board__button"></div>
+                        <div class="crossCircle board__button"></div>
+                    </div>
+                </div>
+                <div class=controllerRight>
+                    <div class=backButton1Center>
+                        <div data-command='flip' data-option="l" class="board__button cornerLeft1"></div>
+                        <div data-command='flip' data-option="f" class="board__button cornerRight1"></div>
+                    </div>
+                    <div class=backButton2Center>
+                        <div data-command='flip' data-option="b" class="board__button cornerLeft2"></div>
+                        <div data-command='flip' data-option="r" class="board__button cornerRight2"></div>
+                    </div>
+                </div>
+            </div>
 
-        <button id='' data-command='cw' data-option="45" class='board__button'>Rotate ClockWise 45°</button>
-        <button id='' data-command='ccw' data-option="45" class='board__button'>Rotate CounterClockWise 45°</button>
+            <div class="triangleRotate">
+                <div data-command='ccw' data-option="45" class="board__button rotateLeft"></div>
+                <div class="triangle">
+                    <div data-command='forward' data-option="50" class="board__button triangleUp"></div>
+                    <div data-command='back' data-option="50" class="board__button triangleDown"></div>
+                </div>
+                <div data-command='cw' data-option="45" class="board__button rotateRight"></div>
+            </div>
 
+            <div>
+                <div id='' data-command='emergency' class='emergency board__button'>Emergency!</div>
+            </div>
 
+            <div id="flightLogger" class="loggerDiv">Flight logs ...</div>
+
+        </div>
     </div>
-    <div id="chart_div" class='charts_container'></div>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript" src="/js/jsmpeg.min.js" defer></script>
     <script type="text/javascript" src="/js/socket.io.js" defer></script>
+    <!-- <script type="text/javascript" src="/dist/telloChartBundle.js" defer></script> -->
     <script type="text/javascript" src="js/api.js" defer></script>
-    <script type="text/javascript" src="js/app.js" defer></script>
+    <script type="text/javascript" src="/dist/appBundle.js" defer></script>
 
 </body>
 

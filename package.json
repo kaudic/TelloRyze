@@ -4,7 +4,8 @@
   "description": "",
   "main": "fly.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build_app": "npx browserify -e public/js/app.js -o public/dist/appBundle.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,13 @@
   },
   "homepage": "https://github.com/kaudic/TelloRyze#readme",
   "dependencies": {
+    "chart.js": "^3.8.0",
+    "chartjs-gauge": "^0.3.0",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.17.2",
-    "socket.io": "^4.5.1"
+    "socket.io": "^4.5.1",
+    "ws": "^8.8.0"
   },
   "devDependencies": {
     "eslint": "^8.6.0",

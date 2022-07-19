@@ -9,9 +9,14 @@ const controller = {
     },
 
     sendCommand: async (req, res) => {
-        const { command, option } = req.body;
+        let { command, option } = req.body;
+
+        if (option) {
+            command = command + ' ' + option;
+        }
 
         try {
+            console.log('----------------------: ' + command);
             await drone.send(command);
             return res.status(200).json(`${option ? option : '(no option)'}${command} !`);
         }
@@ -24,16 +29,3 @@ const controller = {
 };
 
 module.exports = controller;
-
-
-
-// making the drone servor for getting state info
-
-        // const droneState = dgram.createSocket('udp4');
-        // droneState.bind(STATE_PORT, STATE_HOST);
-
-
-
-        // droneState.on('message', (msg, rinfo) => {
-        //     console.log(`drone state: ${msg} from ${rinfo.address}:${rinfo.port}`);
-        // });

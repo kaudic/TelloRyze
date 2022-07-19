@@ -8,11 +8,13 @@ const api = {
         // get command and option if any info from dataset of the button clicked
         const { command, option } = e.target.dataset;
 
-        // informing User Navigator 
-        console.log(`Sending to API the command ${command}`);
+        // informing User with a logger on screen
+        const logger = document.getElementById('flightLogger');
+        logger.textContent += `\nSending to API the command -${command}- \n--------------------------------\n`;
         if (option) {
-            console.log(`option ${option} sent along the command`);
+            logger.textContent += `option -${option}- sent along the command\n--------------------------------\n`;
         }
+        logger.scrollTop = logger.scrollHeight;
 
         // sending details to back
         const resultFromCommand = await fetch(`${api.baseUrl}/command`, {

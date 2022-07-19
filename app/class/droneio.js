@@ -23,7 +23,10 @@ class Droneio {
             console.log(`drone message: ${msg} from ${rinfo.address}:${rinfo.port}`);
         });
 
+        // initialize the drone to accept command
         this.send('command');
+        // initialize the video stream
+        this.send('streamon');
     };
 
 
