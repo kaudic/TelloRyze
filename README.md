@@ -9,7 +9,7 @@ If you launch this project you will get the below screen on your browser. The sc
 - stream of the video in the middle
 - controllers on the right with flight logs on the bottom right
 
-![Tello Dashboard](https://kaweb-freelance.s3.amazonaws.com/Tableau_de_Bord_1658242549308.JPG)
+[Tello Dashboard](https://kaweb-freelance.s3.amazonaws.com/Tableau_de_Bord_1658242549308.JPG)
 
 # Requirements
 
