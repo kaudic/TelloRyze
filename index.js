@@ -51,7 +51,7 @@ setTimeout(function () {
         "-codec:v", "mpeg1video",
         "-b", "800k",
         "-f", "mpegts",
-        "http://127.0.0.1:3001/stream"
+        `http://127.0.0.1:${process.env.STREAM_SERVER_PORT}/stream`
     ];
 
     // Spawn an ffmpeg instance
