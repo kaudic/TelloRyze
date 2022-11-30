@@ -23,14 +23,25 @@ You will need to clone this repository and install the necessary modules
 $ git clone git@github.com:kaudic/TelloRyze.git
 $ cd telloRize
 $ npm install
+$ sudo apt install ffmpeg
+
 ```
+
+You will need to set up .env variables:
+
+PORT = 3000
+STREAM_SERVER_PORT = 3007
+TELLO_CMD_PORT = 8889
+TELLO_HOST = '192.168.10.1'
+TELLO_STATE_PORT = 8890
+STATE_HOST = '0.0.0.0'
 
 
 # Running
 
 Before launching the script, you will need to make sure that the Tello Drone is on. Your computer or server will need to be connected to the WIFI of the Drone.
 
-Then launch `npm run dev` or `node index.js` to get the app running.
+Then launch `node index.js` to get the app running.
 
 Access the web app on your browser on port 3000 on **http://localhost:3000**
 
