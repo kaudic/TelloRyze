@@ -1,14 +1,27 @@
 // imports modules
-const http = require('http');
+const https = require('https');
 require('dotenv').config();
 const WebSocket = require('ws');
 const spawn = require('child_process').spawn;
+const fs = require('fs');
 
 
 // create a server to render the web page (controllers for drone, video player and indicators for Drone State)
 const app = require('./app');
 const port = process.env.PORT ?? 3000;
-const server = http.createServer(app);
+
+// Certificate
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/www.planitools.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/www.planitools.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/www.planitools.com/chain.pem', 'utf8');
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+};
+
+const server = https.createServer(credentials, app);
 
 // application à l'écoute d'un port
 server.listen(port, () => console.log(`Navigator listenning on port ${port}`));
